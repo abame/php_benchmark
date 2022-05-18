@@ -11,7 +11,8 @@ services:
         networks:
             - code-network
     php:
-        image: martinpham/php8:fpm-alpine
+        build:
+            context: ./php80-jit
         volumes:
             - ./code:/code
         networks:

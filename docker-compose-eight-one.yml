@@ -4,16 +4,15 @@ services:
     web:
         image: nginx:latest
         ports:
-            - "8081:80"
+            - "8080:80"
         volumes:
             - ./code:/code
             - ./site.conf:/etc/nginx/conf.d/default.conf
         networks:
             - code-network
     php:
-        image: martinpham/php8:fpm-alpine
+        image: php:8.1-fpm-alpine
         volumes:
-            - ./php-ini:/usr/local/etc/php/custom.d
             - ./code:/code
         networks:
             - code-network
